@@ -1,11 +1,13 @@
 import snscrape.modules.twitter as snt
 import pandas as pd
 
-query = "UK economy"
+query = "UK Economy"
 tweets = []
 limit = 5000
 
 for tweet in snt.TwitterSearchScraper(query).get_items():
+    # print(vars(tweet))
+    # break
     
     if len(tweets) == limit:
         break
