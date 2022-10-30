@@ -12,9 +12,10 @@ for tweet in snt.TwitterSearchScraper(query).get_items():
     if len(tweets) == limit:
         break
     else:
-        tweets.append([tweet.date, tweet.user.username, tweet.content])
+        tweets.append([tweet.date, tweet.user.username, tweet.likeCount, tweet.sourceLabel,  tweet.content])
 
-tweet_data = pd.DataFrame(tweets, columns=["Date", "User", "Tweet"])
+tweet_data = pd.DataFrame(tweets, columns=["Date", "User", "Number of likes", "Tweeted from", "Tweets"])
+print(tweet_data.head())
 
 tweet_data.to_csv('uk_economy.csv', index = None)
 
