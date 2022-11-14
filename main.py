@@ -1,9 +1,9 @@
 import snscrape.modules.twitter as snt
 import pandas as pd
 
-query = "rishi"
+query = "Living in Middlesbrough"
 tweets = []
-limit = 5000
+limit = 40000
 
 for tweet in snt.TwitterSearchScraper(query).get_items():
     # print(vars(tweet))
@@ -17,7 +17,7 @@ for tweet in snt.TwitterSearchScraper(query).get_items():
 tweet_data = pd.DataFrame(tweets, columns=["Date", "User", "Number of likes", "Tweeted from", "Tweets"])
 print(tweet_data.head())
 
-tweet_data.to_csv('rishi.csv', index = None)
+tweet_data.to_csv('middlesbrough1.csv', index = None)
 
 
 
